@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 535263808528418561}
   - component: {fileID: 8435510251636677789}
   - component: {fileID: 388237075697277362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8790643148206172890}
   - component: {fileID: 6918481185183618590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: itemFireEx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

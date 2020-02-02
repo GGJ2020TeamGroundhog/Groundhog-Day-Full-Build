@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2235032845735876378}
   - component: {fileID: 2235032845735876381}
   - component: {fileID: 2235032845735876380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Language Journal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235032845865615260}
   - component: {fileID: 2235032845865615261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: itemBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}

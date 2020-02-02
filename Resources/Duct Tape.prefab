@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8824330956984699449}
   - component: {fileID: 8824330956984699446}
   - component: {fileID: 8824330956984699447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Duct Tape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8824330958732191608}
   - component: {fileID: 8824330958732191610}
   - component: {fileID: 8824330958732191611}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: itemDuctTape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
