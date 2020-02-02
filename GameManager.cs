@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // RESET CONSTANTS
-    private const int TIMELIMIT = 180;
+    private const int TIMELIMIT = 10;
 
 
     public Player player;
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Image fadeImage;
     public FadeManager fadeManager;
     public bool timeRestart = false;
+    public GameObject ship;
 
 
     [HideInInspector] public int timeIteration;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
             { 
                 if (timeLeft <= 0.0f)
                 {
+                    timeRestart = true;
                     timerText.enabled =false;
                     yield return timerEnded();
                     timerText.enabled=true;
@@ -88,7 +90,7 @@ public class GameManager : MonoBehaviour
         timeIteration++;
         player.SetDefault();
         timeRestart = false;
-
+        ship.transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
 
