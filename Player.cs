@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private ContactFilter2D contactFilter;
     private GameManager gameManager;
     private Animator anim;
-    private bool flipped=false;
+    private bool flipped = false;
     public bool inDialogue;
     public bool waitingForNextBubble;
     public DialogueTrigger dt;
@@ -39,15 +39,16 @@ public class Player : MonoBehaviour
     {
         this.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         flipped = false;
+        moveLock = false;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal")>0 && moveLock == false)
+        if (Input.GetAxisRaw("Horizontal") > 0 && moveLock == false)
         {
             this.transform.position = this.transform.position + this.transform.right * speed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw("Horizontal")<0 && moveLock == false)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && moveLock == false)
         {
             this.transform.position = this.transform.position - this.transform.right * speed * Time.deltaTime;
         }
@@ -69,8 +70,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            if (waitingForNextBubble) {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (waitingForNextBubble)
+            {
                 dt.PlayNext();
             }
         }
@@ -81,7 +84,8 @@ public class Player : MonoBehaviour
             rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             isGrounded = false;
         }
-        if (Input.GetKeyDown(KeyCode.P)){
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             Pause();
         }
         WalkingInput(Input.GetAxis("Horizontal"));
@@ -89,7 +93,7 @@ public class Player : MonoBehaviour
     void Pause()
     {
         gameManager.isPaused = !gameManager.isPaused;
-        Debug.Log("Game is paused: "+gameManager.isPaused);
+        Debug.Log("Game is paused: " + gameManager.isPaused);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -104,7 +108,7 @@ public class Player : MonoBehaviour
         //For the purposes of this animator, left direction = -1.0 and right direction = 1.0
         //These bool and float values were defined within the animator as assets
         //If you need the animations, I'll just send the .unity file.
-        if (movement!= 0)
+        if (movement != 0)
         {
             anim.SetBool("walking", true);
             if (movement < 0 && !flipped)
