@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // RESET CONSTANTS
-    private const int TIMELIMIT = 10;
+    private const int TIMELIMIT = 180;
 
 
     public Player player;
