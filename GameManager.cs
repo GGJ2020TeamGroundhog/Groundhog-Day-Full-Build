@@ -9,15 +9,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // RESET CONSTANTS
-    private const int TIMELIMIT = 180;
-
-
+    private const int TIMELIMIT = 10;
+    public InteractableObstacles fire;
+    public InteractableObstacles shieldDoor;
     public Player player;
     public GameObject teleportDes;
     public bool isPaused = false;
     public Image fadeImage;
     public FadeManager fadeManager;
     public bool timeRestart = false;
+    public GameObject ship;
 
 
     [HideInInspector] public int timeIteration;
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shieldDoor.gameObject.SetActive(false);
+
         fadeManager = GameObject.FindGameObjectWithTag("FadeManager").GetComponent<FadeManager>();
         fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -42,6 +45,12 @@ public class GameManager : MonoBehaviour
         int second = (timeLeft % 60);
         string timerT = string.Format("{0:00}:{1:00}", minute, second);
         timerText.text = timerT;
+
+        if (fire.isFixed)
+        {
+            shieldDoor.gameObject.SetActive(false);
+            shieldDoor.gameObject.SetActive(true);
+        }
     }
 
     public void Teleport(GameObject spawnPoint)
@@ -60,6 +69,7 @@ public class GameManager : MonoBehaviour
             { 
                 if (timeLeft <= 0.0f)
                 {
+                    timeRestart = true;
                     timerText.enabled =false;
                     yield return timerEnded();
                     timerText.enabled=true;
@@ -88,7 +98,7 @@ public class GameManager : MonoBehaviour
         timeIteration++;
         player.SetDefault();
         timeRestart = false;
-
+        ship.transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
 
